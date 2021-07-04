@@ -1,0 +1,44 @@
+<ng-container class="cartItems" *ngIf="cartItems && cartItems.length > 0;  else content">
+    <div class="cartTitle">
+        <h1>Cart Items</h1>
+    </div>
+    <div class="table-responsive" *ngIf="cartItems">
+        <table>
+            <tr>
+                <th> Item Id </th>
+                <th> Item Name </th>
+                <th> Item Description </th>
+                <th> Price </th>
+                <th> Quantity</th>
+                <th> Total Cost</th>
+                <th> Actions </th>
+            </tr>
+            <ng-container *ngFor="let items of cartItems">
+                <tr>
+                    <td>{{items.itemId}}</td>
+                    <td>{{items.itemName}}</td>
+                    <td>{{items.itemDescription}}</td>
+                    <td>{{items.price}}</td>
+                    <td>{{items.quantity}}</td>
+                    <td>{{items.totalCost}}</td>
+                    <td>
+                        <button class="modifyItem" (click)="modifyItems(items.itemId, 'edit')"> Edit </button>
+                        <button class="modifyItem" (click)="modifyItems(items.itemId, 'remove')" type="link"> Remove </button>
+                    </td>
+                </tr>
+            </ng-container>
+        </table>
+        <div class="cartButton">
+            <button (click)="hideCart()" id="fillCart"> Add items </button>
+        </div>
+    </div>
+</ng-container>
+
+<ng-template #content>
+    <h1 class="emptyCart"> Your cart is empty
+        <div> Click here to add items to cart!</div>
+    </h1>
+    <div class="cartButton">
+        <button (click)="hideCart()" id="fillCart"> Add items </button>
+    </div>
+</ng-template>

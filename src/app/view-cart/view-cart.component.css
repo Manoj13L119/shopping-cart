@@ -1,0 +1,42 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+.cartTitle, .emptyCart{
+    text-align: center;
+    padding: 25px;
+}
+.modifyItem, #fillCart{
+    background-color: #495057;
+    border: none;
+    color: white;
+    padding: 9px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.cartButton {
+    text-align: center;
+}
+.cartTitle h1{
+    display: inline;
+}
+
+.table-responsive .cartButton{
+    padding-top: 25px;
+}

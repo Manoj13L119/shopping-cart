@@ -1,0 +1,51 @@
+<div class="container" *ngIf="!showCart">
+    <div class="topnav">
+        <button class="link" (click)="viewCart()">View Cart</button>
+    </div>
+
+    <div class="app-container" ng-reflect-klass="app-container" ng-reflect-ng-class="[object Object]">
+        <div class="col-md-6 offset-md-3 mt-5">
+            <div class="card">
+                <h4 class="card-header">ADD ITEMS</h4>
+                <div class="card-body">
+                    <form novalidate="" ng-reflect-form="[object Object]" class="ng-pristine ng-invalid ng-touched">
+                        <div class="form-group">
+                            <input class="form-control" [(ngModel)]="addItem.itemName" placeholder="Item Name"
+                                name="itemName" type="text" ng-reflect-klass="form-control" ng-reflect-name="itemName">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" [(ngModel)]="addItem.itemDescription"
+                                placeholder="Item Description" name="itemDesc" type="text"
+                                ng-reflect-klass="form-control" ng-reflect-name="itemDesc" required>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" [(ngModel)]="addItem.price" placeholder="Price" name="itemPrice"
+                                type="text" ng-reflect-klass="form-control" (keyup)="calculateTotal()"
+                                ng-reflect-name="itemPrice" required>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Quantity" [(ngModel)]="addItem.quantity"
+                                name="quantity" type="text" ng-reflect-klass="form-control" (keyup)="calculateTotal()"
+                                ng-reflect-name="quantity">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Price" [(ngModel)]="addItem.totalCost"
+                                name="totalCost" type="text" ng-reflect-klass="form-control"
+                                ng-reflect-name="totalCost">
+                        </div>
+                        <div class="form-group">
+                            <button id="saveItems" type="submit" class="btn btn-primary" (click)="saveAll()">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="showCart">
+    <app-view-cart [cartItems]="itemList"
+    (itemId)="modifyItem($event)"
+    (showCart)="addItems($event)"
+    ></app-view-cart>
+</div>
+
